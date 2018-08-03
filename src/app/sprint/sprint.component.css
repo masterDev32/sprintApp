@@ -1,0 +1,44 @@
+.navSprint{
+    margin-top: 20px;
+    margin-bottom: 80px;
+    
+}
+.navSprint a{
+    color: #000;
+}
+
+#divTable{
+    height: 500px;
+    overflow: auto;
+}
+
+/*placeholder filter*/
+.input-group input{
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+.container{
+    text-align: center;
+}
+/*button delete*/
+#btnDelete{
+    background-color: transparent;
+    color: red;
+    margin-top: 10px;
+}
+/*info user logged*/
+#infoLog{
+    margin-top: 20px;
+}
+
+/* paggination*/
+.pagination{
+    margin-left: 20px !important;
+    background-color: red !important;
+}
+/*media query*/
+@media (max-width: 480px) { 
+    
+}

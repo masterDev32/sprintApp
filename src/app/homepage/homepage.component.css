@@ -1,0 +1,30 @@
+.homeInfo{
+    width: 350px;
+    height: 400px;
+    margin: auto;
+    margin-top: 7%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    box-shadow: 5px 5px 3px grey;
+}
+.homeInfo a{
+    text-decoration: underline;
+    color: #000;
+}
+.homeInfo a:hover{
+    color: #040;
+}
+/*div home paragraph*/
+#homeParagraph{
+    margin-top: 30px;
+}
+
+footer{
+    margin-top: 5%;
+    text-align: center;
+}
+
+footer h5{
+    margin-bottom: 2%;
+}

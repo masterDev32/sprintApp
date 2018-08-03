@@ -1,0 +1,182 @@
+.navSprint{
+    margin-top: 20px;
+    margin-bottom: 80px;
+    
+}
+.navSprint a{
+    color: #000;
+}
+
+/*placeholder filter*/
+.input-group input{
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+.container{
+    padding-top: 20px;
+    width: 350px;
+    box-shadow: 3px 3px 3px grey;
+}
+.container label{
+    font-size: 12px;
+    color: gray;
+}
+.infoSprint{
+    margin-top: 20px;
+    flex-direction: column;
+    display: flex;
+}
+
+/*description*/
+.infoDescription{
+    flex-direction: column;
+    display: flex;
+}
+#labelDescription{
+    margin-top: 10px;
+}
+
+/*button start and notification*/
+.infoStart{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.infoStart button{
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*btn start*/
+.start{
+    background-color:  #3f51b5;
+}
+
+/*btn stop*/
+#btnStop{
+    margin-left: 48%;
+    margin-top: 10px;
+    background-color:#e83e8c;
+}
+
+/*Progress view*/
+#progress{
+    margin-top: 100px;
+    text-align: center;
+}
+
+/*loading*/
+#load{
+    width: 120px;
+    height: 120px;
+    border: 5px solid #ccc;
+    border-top-color: rgb(63, 81, 181);;
+    border-radius: 100%;
+    margin-top: 50px;
+    margin-left: 46%;
+    margin-bottom: 10px;
+    animation: round 2s linear infinite;
+}
+  /*info progress*/
+
+  #infoProgress{
+    margin-top: 5%;
+}
+#info{
+    text-align: center;
+}
+/*info user logged*/
+#infoLog{
+    margin-top: 60px;
+}
+
+
+@keyframes round {
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+@media screen and (max-width: 992px) {
+    #progress h3{
+        margin-left: 50px;
+    }
+    #load{
+        width: 100px;
+        height: 100px;
+    }
+
+  }
+
+
+
+
+  /*media query*/
+  /* Large desktop */
+/*@media (min-width: 1200px) { 
+    #load{
+        width: 150px;
+        height: 150px;
+        margin-left: 46%;
+    }
+    #infoProgress{
+        margin-top: 45%;
+    }
+    #infoProgress p{
+        font-size: 24px;
+        text-align: center;
+    }
+ }*/
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1200px) { 
+    #load{
+        width: 100px;
+        height: 100px;
+    }
+    #infoProgress{
+        margin-top: 30%;
+    }
+    #goodJob{
+        font-size: 25px;
+        margin-left: 25px;
+    }
+ }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    #infoProgress{
+        margin-top: 20%;
+    }
+    #infoProgress p{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+ }
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+    #load{
+        margin-left: 42%;
+    }
+    #infoProgress{
+        margin-top: 30%;
+    }
+    #infoProgress p{
+        text-align: center;
+    }
+ }
+ /*  Iphones 5/SE */
+@media (max-width: 350px) { 
+    #load{
+        margin-left: 40%;
+    }
+    #infoProgress{
+        margin-top: 60%;
+    }
+    #infoProgress p{
+        text-align: center;
+    }
+ }

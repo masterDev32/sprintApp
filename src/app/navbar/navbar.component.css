@@ -1,0 +1,43 @@
+/*#3f51b5*/
+.divNav{
+    display: block;
+     width: 100vw;
+}
+
+.flex-nowrap{
+    background-color: #3f51b5;
+    
+
+}
+.logo{
+    width: 150px;
+    padding: 20px;
+}
+
+/*text Sprint*/
+.sprintText{
+    text-decoration: none;
+    font-size: 22px;
+    color: #fff;
+}
+
+/*btn login navbar*/
+.btnNavbar{
+    margin-right: 20px;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+a{
+
+    color: #fff;
+
+}
+nav a:hover { 
+    color: #ccc;
+}
+
+/*media query*/
+@media (max-width: 480px) { 
+    
+ }

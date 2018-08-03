@@ -1,0 +1,91 @@
+<div *ngIf="!isProgress">
+<div class="navSprint">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link " routerLink="../sprint">Past Sprints</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="" >New Sprint</a>
+      </li>
+    </ul>
+  </div>
+  
+<div class="container card">
+    <h2 style="text-align: center;">Start a sprint!</h2>
+    <!--choix sprint-->
+    <div class="infoSprint">
+        <label>Choose length *: </label>
+        <select class="form-control" [(ngModel)]="sprintDuree">
+            <option *ngFor="let sprint of sprints" value={{sprint.name}}>
+                {{sprint.name}} {{sprint.id === 5 ? " ( "+ (sprint.id) + "s )" : " ( "+ (sprint.id/60.0) + " min) "}} 
+            </option>
+        </select>
+    </div>
+    <!--description-->
+    <div class="infoDescription">
+        <label id="labelDescription">Description * </label>
+        
+        <textarea class="form-control" [(ngModel)]="description" name="descr" id="" cols="30" rows="5" placeholder="What will you be doing?"></textarea>
+    </div>
+    <!--start-->
+    <div class="infoStart">
+            <div class="form-check">
+                    <input class="form-check-input" [(ngModel)]="notification" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Notify when completed
+                    </label>
+            </div>
+            <label for=""></label>
+            <button type="button" class="btn btn-secondary btn-lg start"  (click)="add()">Start</button>
+    </div>
+</div>
+
+</div>
+<div id="info">
+  <p id="infoLog">Logged in as {{userName}}</p>
+</div>
+
+
+<!-- show sprint progression-->
+<div *ngIf="isProgress">
+    <div id="progress">
+        <h3>Progress</h3>
+        <div id="load"></div>
+        <div id="infoProgress">
+            <h3>{{pourcentage}} %</h3>
+            <p *ngIf="pourcentage >= 100" style="text-align: center;" id="goodJob">Good Job</p>
+            <p *ngIf="pourcentage < 100">Focus fully on your task</p>
+        </div>
+       
+    </div>
+    <div>
+            <button *ngIf="pourcentage < 100" type="button" class="btn btn-secondary btn-lg" id="btnStop" (click)="openVerticallyCentered(content)">Stop</button>
+    </div>
+
+</div>
+
+<!--stop sprint progression-->
+<ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" style="margin-left: 100px;">On hold. Cancel sprint?</h4>
+        </div>
+        <div class="modal-body" style="text-align: center">
+            <button type="button" class="btn btn-light btn-lg" (click)="stopProgressAndSaveData(); c('Close click')" style="background-color:#e83e8c; ">Yes</button>
+            <button type="button" class="btn btn-light btn-lg" (click)="returnToProgress(); c('Close click')" style="background-color:#3f51b5; ">No</button>
+        </div>
+</ng-template>
+
+<!--show modal when sprint finished-->
+<button  type="button" style="display: none" (click)="openVerticallyCenteredDone(finished)">Stop</button>
+
+<ng-template #finished let-d="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" style="margin-left: 150px;">Sprint finished</h4>
+        </div>
+        <div class="modal-body" style="text-align: center">
+            <p>Started: {{startAt | date: 'mediumTime'}}</p>
+            <p>Completed: {{finishAt | date: 'mediumTime'}}</p>
+            <button type="button" class="btn btn-light btn-lg" (click)="sprintSuccess(); d('Close click')" style="background-color:#3f51b5; ">Close</button>
+        </div>
+</ng-template>
+    

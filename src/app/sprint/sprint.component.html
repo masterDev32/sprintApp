@@ -1,0 +1,88 @@
+<div class="navSprint">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="">Past Sprints</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="../newSprint" >New Sprint</a>
+    </li>
+  </ul>
+</div>
+
+<div>
+ 
+    <div class="input-group input-group-sm mb-3">
+       <input type="text" class="form-control" (keyup)="filter()" placeholder="Filter" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="filterValue">
+    </div>
+    <br>
+    <div id="divTable">
+        <table class="table" [mfData]="sprints" #mf="mfDataTable" [mfRowsOnPage]="5"  >
+            <thead>
+              <tr>
+                <th style="width: 10%" class="tab">
+                    <mfDefaultSorter by="length" (click)="sortBy('length')">Length</mfDefaultSorter>
+                </th>
+                <th style="width: 8%" class="tab">
+                    <mfDefaultSorter by="status" (click)="sortBy('status')">Status</mfDefaultSorter>
+                </th>
+                <th style="width: 8%" class="tab">
+                    <mfDefaultSorter by="date" (click)="sortBy('date')">Date</mfDefaultSorter>
+                </th>
+                <th style="width: 8%" class="tab">
+                    <mfDefaultSorter by="start" (click)="sortBy('start')">Start</mfDefaultSorter>
+                </th>
+                <th style="width: 8%" class="tab">
+                    <mfDefaultSorter by="finish" (click)="sortBy('finish')">Finish</mfDefaultSorter>
+                </th>
+                <th style="width: 50%" class="tab">
+                    <mfDefaultSorter by="description" (click)="sortBy('description')">Description</mfDefaultSorter>
+                </th>
+              </tr>
+            </thead>
+            <tbody *ngIf="tableSprintFiltered?.length <= 0">
+                  <tr  *ngFor="let sprint of mf.data">
+                      <td style="width: 200px;">{{sprint.length}}</td>
+                      <td style="width: 130px;">{{sprint.status}}</td>
+                      <td style="width: 130px;">{{sprint.date | date}}</td>
+                      <td style="width: 130px;">{{sprint.start | date: 'mediumTime'}}</td>
+                      <td style="width: 130px;">{{sprint.finish | date: 'mediumTime'}}</td>
+                      <td style="width: 400px;">{{sprint.description}}</td>
+                    </tr>
+             </tbody>
+             <tbody *ngIf="tableSprintFiltered?.length > 0">
+                <tr  *ngFor="let sprint of tableSprintFiltered">
+                    <td style="width: 200px;">{{sprint.length}}</td>
+                    <td style="width: 130px;">{{sprint.status}}</td>
+                    <td style="width: 130px;">{{sprint.date | date}}</td>
+                    <td style="width: 130px;">{{sprint.start | date: 'mediumTime'}}</td>
+                    <td style="width: 130px;">{{sprint.finish | date: 'mediumTime'}}</td>
+                    <td style="width: 400px;">{{sprint.description}}</td>
+                  </tr>
+             </tbody>
+             <tfoot>
+                <tr >
+                    <td colspan="12" >
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="container">
+  <button *ngIf="sprints?.length > 0" class="btn" id="btnDelete" (click)="openVerticallyCentered(content)">Delete all data</button>
+  <p id="infoLog">Logged in as {{userName}}</p>
+</div>
+
+<!--Deletion warning-->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" style="margin-left: 22px;">Deletion is irreversible. Are you sure?</h4>
+    </div>
+    <div class="modal-body" style="text-align: center">
+      <p>The only information concerning your user that we store are your past sprints. We do not store information about your user itself. </p>
+      <p> Delete to eliminate all records. </p>  
+      <button type="button" class="btn btn-light btn-lg" (click)="delete(); c('Close click')" style="background-color:#e83e8c; ">Yes</button>
+      <button type="button" class="btn btn-light btn-lg" (click)="c('Close click')" style="background-color:#3f51b5; ">No</button>
+    </div>
+</ng-template>
