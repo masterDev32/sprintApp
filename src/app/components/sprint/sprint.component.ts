@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { ApiBackEndService } from '../services/api-backend.service';
+import { AuthService } from '../../services/auth.service';
+import { ApiBackEndService } from '../../services/api-backend.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
@@ -15,10 +15,10 @@ export class SprintComponent implements OnInit {
     private modalService: NgbModal
    
     ) { }
-  //list sprint
+  //array of sprints
    sprints;
 
-  //user name
+  //user name and user id.
   userName;
   userID;
   

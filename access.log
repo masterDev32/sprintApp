@@ -78,3 +78,10 @@ GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 304 - - 18.200 ms
 ::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 304 - - 1.988 ms
 ::1 - DELETE /api/deleteSprint/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 200 18 - 1.568 ms
 ::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 200 2 - 1.327 ms
+::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 304 - - 14.913 ms
+::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 304 - - 2.122 ms
+::1 - POST /api/saveSprint HTTP/1.1 200 19 - 5.606 ms
+::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 200 259 - 4.968 ms
+::1 - POST /api/saveSprint HTTP/1.1 200 19 - 0.688 ms
+::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 200 527 - 2.371 ms
+::1 - GET /api/getSprints/auth0%7C5b61c4eb750f272b7932ab74 HTTP/1.1 304 - - 3.330 ms

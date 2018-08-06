@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { TailleSprint } from '../services/TailleSprint'
-import { SprintService } from '../services/sprint.service';
-import { ApiBackEndService } from '../services/api-backend.service';
-import { PushNotificationService } from '../services/push-notification.service';
+import { AuthService } from '../../services/auth.service';
+import { TailleSprint } from '../../services/TailleSprint'
+import { SprintService } from '../../services/sprint.service';
+import { ApiBackEndService } from '../../services/api-backend.service';
+import { PushNotificationService } from '../../services/push-notification.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { Sprint } from '../services/sprint';
+import { Sprint } from '../../services/sprint';
 import { Router } from '@angular/router';
 @Component({
   selector: 'new-sprint',
