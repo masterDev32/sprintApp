@@ -3,6 +3,9 @@ const configSwagger = require('./config/configSwagger')
 const app = require('./routes/api.route')
 require('./config/configDB')
 
+/**
+ * swagger
+ */
 app.use('/api-docs', swaggerUi());
 app.use('/api-docs.json', configSwagger);
 

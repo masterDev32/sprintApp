@@ -77,7 +77,6 @@ app.get('/api/getSprints/:id', function(req, res) {
    *         description: New Sprint
    *         in: body
    *         required: true
-   *         type: object
    *         schema: 
    *                $ref: '#/definitions/Past-Sprints'
    *     description: create a new past-sprint and save in DB.
