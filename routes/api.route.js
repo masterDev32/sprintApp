@@ -1,31 +1,26 @@
 var sortJsonArray = require('sort-json-array');
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan')
+const fs = require('fs')
+const path = require('path')
+const cors = require('cors')
 const sprintPastDAO = require('../daos/past-sprint.dao')
 var app = express();
+
+/**
+ * create file to writte all logs
+ */
+
+var acceslog = fs.createWriteStream(path.join(__dirname, '../access.log'),{flags:'a'})
+
 /**
  * BodyParser Middleware
 */
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-/**
- * give access to angular App.
- */
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With,content-type'
-  );
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
-
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(morgan('short',{stream: acceslog}))
 
 /**
    * @swagger

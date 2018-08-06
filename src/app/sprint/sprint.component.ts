@@ -22,7 +22,7 @@ export class SprintComponent implements OnInit {
   userName;
   userID;
   
-  filterValue;
+  filterValue = '';
   tableSprintFiltered;
   isFiltered = false
   ngOnInit() {
@@ -84,14 +84,16 @@ export class SprintComponent implements OnInit {
    * fliter past sprint
    */
   filter(){
-    this.tableSprintFiltered = [];
-
+    this.tableSprintFiltered = []
     let keywords = this.filterValue.toLowerCase()
     this.isFiltered = true;
     for (let i = 0; i < this.sprints.length; i++) {
-      if(this.sprints[i].length.toLowerCase().includes(keywords)){
-        this.tableSprintFiltered.push(this.sprints[i]);
+      if(this.sprints[i].length){
+        if(this.sprints[i].length.toLowerCase().includes(keywords)){
+          this.tableSprintFiltered.push(this.sprints[i]);
+        }
       }
+     
     }
   }
 
